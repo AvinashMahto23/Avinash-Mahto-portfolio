@@ -276,7 +276,7 @@ hero responsive
 SKILLS SECTION CSS
 ============================= */
 
-.skills h2 {
+.skills h3 {
   text-align: center;
   color: var(--primary-color2);
 }
@@ -308,16 +308,16 @@ SKILLS SECTION CSS
   /* animation: html 0.5s forwards; */
 }
 .html div {
-  animation: html 1s forwards;
+  animation: html 1s forwards infinite;
 }
 .css div {
-  animation: css 1s forwards;
+  animation: css 1s forwards infinite;
 }
 .javascript div {
-  animation: javascript 1s forwards;
+  animation: javascript 1s forwards infinite;
 }
 .react div {
-  animation: react 1s forwards;
+  animation: react 1s forwards infinite;
 }
 @keyframes html {
   100% {
