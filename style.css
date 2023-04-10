@@ -1,13 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Itim&family=Work+Sans:ital,wght@0,400;0,700;1,500&display=swap');
 
 /* Css variables */
-
+:root {
+  --primary-color1: yellow;
+  --primary-color2: gold;
+  --primary-color3: blueviolet;
+  --color-darK: #000;
+  --color-grey: grey;
+  --color-light: #fff;
+  --letter-spacing1: 1px;
+  --letter-spacing2: 2px;
+}
 /* global styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #fff;
+  /* color: var(--color-light); */
 }
 
 html {
@@ -23,24 +32,35 @@ img {
   width: 100%;
   display: block;
 }
-section {
-  padding-top: 5rem;
+.section {
+  padding: 5rem 5%;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 h1 {
-  font-size: 3rem;
+  font-size: 5rem;
 }
 h2 {
-  font-size: 2rem;
+  font-size: 4rem;
 }
 h3 {
-  font-size: 1rem;
+  font-size: 3rem;
 }
 h4 {
-  font-size: 0.8rem;
+  font-size: 2rem;
+}
+h5 {
+  font-size: 1rem;
 }
 a {
   text-decoration: none;
   display: inline-block;
+  letter-spacing: var(--letter-spacing1);
 }
 li {
   list-style: none;
@@ -56,11 +76,11 @@ header {
   width: 100vw;
 }
 /* ================
-    navbar 
+    NAVBAR CSS
    =================*/
 .navbar {
   height: 4rem;
-  background: blueviolet;
+  background: var(--primary-color3);
   display: flex;
   justify-content: space-between;
   padding: 0 5%;
@@ -68,8 +88,8 @@ header {
 }
 .logo {
   font-size: 2rem;
-  color: yellow;
-  border: 4px solid yellow;
+  color: var(--primary-color1);
+  border: 4px solid var(--primary-color1);
   padding: 0.5rem 1rem;
   border-radius: 1rem 0 1rem 0;
 }
@@ -79,15 +99,27 @@ header {
   gap: 2rem;
 }
 .nav-links a {
-  color: yellow;
+  color: var(--primary-color1);
   font-size: 1.5rem;
   letter-spacing: 2px;
   text-transform: uppercase;
+  position: relative;
+  overflow-x: hidden;
 }
-.nav-links a:hover {
-  border-bottom: 2px solid #fff;
+.nav-links a:before {
+  position: absolute;
+  content: '';
+  background: var(--primary-color1);
+  width: 100%;
+  height: 2px;
+  left: -100%;
+  bottom: 0;
   transition: 0.3s;
 }
+.nav-links a:hover:before {
+  left: 0;
+}
+
 .btn-container {
   display: none;
 }
@@ -95,6 +127,9 @@ header {
 navbar responsive
 =============== */
 @media (max-width: 900px) {
+  header {
+    height: auto;
+  }
   .navbar {
     position: relative;
   }
@@ -102,7 +137,7 @@ navbar responsive
     /* display: none; */
     width: 100%;
     height: 100vh;
-    background: blueviolet;
+    background: var(--primary-color3);
     position: absolute;
     top: 0;
     left: 0;
@@ -125,7 +160,7 @@ navbar responsive
   }
   .nav-btn i {
     font-size: 2rem;
-    color: yellow;
+    color: var(--primary-color1);
   }
   .close-btn {
     display: none;
@@ -139,22 +174,19 @@ navbar responsive
 
   .active .close-btn {
     display: block;
-    color: red;
   }
   .active .bars-btn {
     display: none;
   }
 }
 /* ==========================
-hero section
+HERO CSS
 ============================= */
 .hero {
   display: flex;
   align-items: center;
   /* flex-wrap: wrap; */
-  padding-left: 10%;
-  padding-right: 10%;
-  padding-top: 5rem;
+  padding: 4rem 10%;
 }
 /* hero-left */
 
@@ -165,15 +197,17 @@ hero section
   width: 50%;
   align-items: center;
 }
-h1 {
+.hero-left h3 {
   margin-bottom: 1.5rem;
+  color: #fff;
 }
-.hero-left h1 span {
-  color: #ffc93c;
+.hero-left h3 span {
+  color: var(--primary-color2);
 }
 .hero-left p {
-  letter-spacing: 1px;
+  letter-spacing: var(--letter-spacing1);
   line-height: 1.5rem;
+  color: var(--color-light);
 }
 .hero-icons {
   display: flex;
@@ -186,7 +220,10 @@ h1 {
   font-size: 1.5rem;
   /* border: 2px solid yellow; */
   padding: 5px;
-  color: yellow;
+  color: var(--primary-color1);
+}
+.hero-icons a i:hover {
+  color: var(--primary-color2);
 }
 
 /* hero-right */
@@ -202,8 +239,9 @@ h1 {
   position: relative;
 }
 .hero-img {
-  border-radius: 0.5rem;
+  border-radius: inherit;
 }
+
 .hero-img-container:before {
   position: absolute;
   content: '';
@@ -211,10 +249,11 @@ h1 {
   left: 1rem;
   width: 100%;
   height: 100%;
-  border: 2px solid yellow;
+  border: 2px solid var(--primary-color1);
   border-radius: 0.5rem;
   z-index: -1;
 }
+
 /* ==================
 hero responsive
 ===================== */
@@ -225,8 +264,86 @@ hero responsive
   .hero-left,
   .hero-right {
     width: 100%;
+    height: auto;
   }
 }
 .hero-right {
   padding-top: 5rem;
+}
+/* END OF HERO CSS */
+
+/* ==========================
+SKILLS SECTION CSS
+============================= */
+
+.skills h2 {
+  text-align: center;
+  color: var(--primary-color2);
+}
+.single-skill {
+  width: 90%;
+  max-width: 700px;
+  margin: 0 auto;
+  /* text-align: center; */
+}
+.single-skill h5 {
+  color: #fff;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+.skill-bar {
+  margin: 0 auto;
+  height: 1.5rem;
+  background: #c5c5c5;
+  border-radius: 1rem;
+}
+.skill-bar div {
+  width: 0%;
+  height: 100%;
+  color: #fff;
+  background: blueviolet;
+  background: linear-gradient(45deg, #8614ce, #ff0057);
+  border-radius: inherit;
+  text-align: right;
+  /* animation: html 0.5s forwards; */
+}
+.html div {
+  animation: html 1s forwards;
+}
+.css div {
+  animation: css 1s forwards;
+}
+.javascript div {
+  animation: javascript 1s forwards;
+}
+.react div {
+  animation: react 1s forwards;
+}
+@keyframes html {
+  100% {
+    width: 80%;
+  }
+}
+@keyframes css {
+  100% {
+    width: 85%;
+  }
+}
+@keyframes javascript {
+  100% {
+    width: 65%;
+  }
+}
+@keyframes react {
+  100% {
+    width: 60%;
+  }
+}
+.skill-bar div p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+
+  text-align: end;
 }
