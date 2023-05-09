@@ -24,6 +24,7 @@ html {
   overflow-x: hidden;
 }
 body {
+  color: #fff;
   overflow-x: hidden;
   font-family: 'Work Sans', sans-serif;
   background: #000;
@@ -37,7 +38,7 @@ img {
   display: inline-block;
 }
 .section {
-  padding: 5rem 5%;
+  padding: 3rem 5%;
 }
 h1,
 h2,
@@ -47,19 +48,19 @@ h5 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 h1 {
-  font-size: 5rem;
-}
-h2 {
   font-size: 4rem;
 }
-h3 {
+h2 {
   font-size: 3rem;
 }
-h4 {
+h3 {
   font-size: 2rem;
 }
-h5 {
+h4 {
   font-size: 1rem;
+}
+h5 {
+  font-size: 0.8rem;
 }
 a {
   text-decoration: none;
@@ -78,10 +79,10 @@ hr {
   border-top: 10px dashed var(--color-light);
   border-bottom: none;
   width: 10rem;
-  margin: 0 auto;
+  margin: 1rem auto;
 }
 .section-title {
-  color: var(--primary-color2);
+  color: var(--primary-color1);
   text-transform: uppercase;
   letter-spacing: 3px;
   text-align: center;
@@ -289,6 +290,7 @@ hero responsive
 .hero-right {
   padding-top: 5rem;
 }
+
 /* END OF HERO CSS */
 
 /* ==========================
@@ -371,13 +373,22 @@ SKILLS SECTION CSS
 /* ====================
 GALLERY SECTION CSS
 ======================= */
-
 .images-container {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-  grid-auto-rows: 500px;
-  grid-auto-flow: dense;
+  grid-template-columns: 1fr 1fr;
+}
+@media screen and (min-width: 600px) {
+  .images-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media screen and (min-width: 900px) {
+  .images-container {
+    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: 500px; */
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 .images-container img {
   height: 100%;
@@ -386,6 +397,100 @@ GALLERY SECTION CSS
   object-fit: cover;
   object-position: 25% 25%;
 }
-.long {
-  grid-row: span 2;
+
+/* END OF GALLERY CSS */
+
+/*============================
+ CONTACT US
+ ============================= */
+/* .contact-us {
+  background: pink;
+} */
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.contact-info {
+  padding: 0 1rem;
+}
+
+.contact-info p {
+  margin-bottom: 2rem;
+}
+.connect {
+  padding: 1rem;
+  background: var(--color-light);
+  /* width: 80%; */
+  margin: 0 auto;
+  border-radius: 1rem;
+  text-align: center;
+}
+.connect h4 {
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  color: crimson;
+}
+.connect p {
+  color: black;
+  margin-bottom: 1rem;
+}
+.fab {
+  color: orangered;
+  margin-right: 1rem;
+}
+.fa-facebook {
+  color: cornflowerblue;
+}
+.fa-patreon {
+  color: var(--color-darK);
+}
+form {
+  text-align: center;
+  padding: 0 1rem;
+}
+form .input {
+  display: block;
+  margin: 0 auto 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 0.5rem;
+  width: 90%;
+  height: 2rem;
+}
+.form-btn {
+  cursor: pointer;
+  text-transform: uppercase;
+  width: 10rem;
+  background: cyan;
+  color: var(--color-darK);
+  border-radius: 0.5rem;
+  letter-spacing: 1px;
+  height: 2rem;
+  transition: 0.3s;
+}
+.form-btn:hover {
+  background: var(--primary-color3);
+  color: var(--color-light);
+}
+@media screen and (max-width: 650px) {
+  .contact-container {
+    display: block;
+  }
+  form {
+    margin-top: 3rem;
+  }
+}
+
+/* end of contact css */
+/* =====================
+    FOOTER CSS
+   ====================== */
+footer {
+  background: var(--primary-color3);
+  padding: 1rem 1rem;
+}
+footer p {
+  letter-spacing: 1px;
+  text-align: center;
 }
